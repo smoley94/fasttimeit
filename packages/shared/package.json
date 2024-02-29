@@ -1,0 +1,25 @@
+{
+  "name": "@fastseries/shared",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@fluentui/react-components": "^9.45.0",
+    "@fluentui/react-icons": "^2.0.225",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@tauri-apps/api": "^1.5.2",
+    "react-router-dom": "^6.21.2",
+    "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store#v1",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@fastseries/prettier-config": "workspace:^",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "autoprefixer": "^10.4.17",
+    "prettier": "^3.2.4",
+    "typescript": "^5.0.2"
+  }
+}
