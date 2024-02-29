@@ -1,4 +1,5 @@
 import { makeStaticStyles } from "@fluentui/react-components";
+
 import "normalize.css";
 import {
   RouteObject,
@@ -6,6 +7,7 @@ import {
   createHashRouter,
 } from "react-router-dom";
 import { Layout } from "./layout";
+//import { Start } from "./pages/start";
 
 const useStaticStyles = makeStaticStyles({
   body: { height: "100%" },
