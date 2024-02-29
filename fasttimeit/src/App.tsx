@@ -7,7 +7,7 @@ import {
   createHashRouter,
 } from "react-router-dom";
 import { Layout } from "./layout";
-//import { Start } from "./pages/start";
+import { Start } from "./pages/start";
 
 const useStaticStyles = makeStaticStyles({
   body: { height: "100%" },
@@ -22,14 +22,12 @@ export function App() {
     {
       path: "/",
       element: <Layout />,
-      /*
       children: [
         {
           index: true,
           element: <Start />,
         },
       ],
-      */
     },
   ];
 

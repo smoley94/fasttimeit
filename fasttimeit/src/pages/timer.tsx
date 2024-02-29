@@ -13,7 +13,7 @@ export function Start() {
 
   return (
     <div className={styles.root}>
-      <Title1 block>Home</Title1>
+      <Title1 block>Timer</Title1>
     </div>
   );
 }
