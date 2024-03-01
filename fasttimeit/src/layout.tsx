@@ -1,22 +1,24 @@
+import { NavigationDrawer } from "../../packages/shared/src/components/navigation-drawer";
+
 import {
-  InlineDrawer,
   DrawerBody,
   DrawerHeader,
   DrawerHeaderTitle,
-  Tab,
   makeStyles,
+  Tab,
   TabList,
+  Persona,
 } from "@fluentui/react-components";
 
 import {
-  TimerFilled,
-  HomeFilled,
-  SettingsFilled,
-  AddSquareFilled,
-  ArrowExitFilled,
+  HomeRegular,
+  TimerRegular,
+  AddSquareRegular,
+  SettingsRegular,
+  ArrowExitRegular,
 } from "@fluentui/react-icons";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -36,34 +38,65 @@ export function Layout() {
 
   const navigate = useNavigate();
 
+  function handleClick(value: string) {
+    navigate(value);
+  }
+
   return (
     <div className={styles.root}>
-      <InlineDrawer open>
+      <NavigationDrawer open>
         <DrawerHeader>
           <DrawerHeaderTitle>Fast TimeIt</DrawerHeaderTitle>
+          <Persona
+            size="huge"
+            primaryText="Guest"
+            secondaryText="Lokal konto"
+            textAlignment="center"
+          />
         </DrawerHeader>
-        <DrawerBody>
-          <div className={styles.drawerContent}>
+        <DrawerBody className={styles.drawerContent}>
+          <div>
             <TabList appearance="subtle" vertical>
-              <Tab value="/" icon={<HomeFilled />}>
+              <Tab
+                value="/"
+                icon={<HomeRegular />}
+                onClick={() => handleClick("/")}
+              >
                 Startsside
               </Tab>
-              <Tab value="/timer" icon={<TimerFilled />}>
+              <Tab
+                value="/timer"
+                icon={<TimerRegular />}
+                onClick={() => handleClick("/timer")}
+              >
                 Stopur
               </Tab>
-              <Tab value="/manual" icon={<AddSquareFilled />}>
+              <Tab
+                value="/manual"
+                icon={<AddSquareRegular />}
+                onClick={() => handleClick("/manual")}
+              >
                 Manuel tidsregistrering
               </Tab>
-              <Tab value="/settings" icon={<SettingsFilled />}>
+              <Tab
+                value="/settings"
+                icon={<SettingsRegular />}
+                onClick={() => handleClick("/settings")}
+              >
                 Indstillinger
               </Tab>
-              <Tab value="/logout" icon={<ArrowExitFilled />}>
+              <Tab
+                value="/logout"
+                icon={<ArrowExitRegular />}
+                onClick={() => handleClick("/logout")}
+              >
                 Log ud
               </Tab>
             </TabList>
           </div>
         </DrawerBody>
-      </InlineDrawer>
+      </NavigationDrawer>
+      <Outlet />
     </div>
   );
 }

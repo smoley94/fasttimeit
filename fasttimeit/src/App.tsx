@@ -1,13 +1,15 @@
 import { makeStaticStyles } from "@fluentui/react-components";
-
+import { RouteErrorBoundary } from "../../packages/shared/src/components/route-error-boundary";
+import { Layout } from "./layout";
+import { Start } from "./pages/start";
+import { Timer } from "./pages/timer";
 import "normalize.css";
+
 import {
   RouteObject,
   RouterProvider,
   createHashRouter,
 } from "react-router-dom";
-import { Layout } from "./layout";
-import { Start } from "./pages/start";
 
 const useStaticStyles = makeStaticStyles({
   body: { height: "100%" },
@@ -22,10 +24,15 @@ export function App() {
     {
       path: "/",
       element: <Layout />,
+      errorElement: <RouteErrorBoundary />,
       children: [
         {
           index: true,
           element: <Start />,
+        },
+        {
+          path: "timer",
+          element: <Timer />,
         },
       ],
     },

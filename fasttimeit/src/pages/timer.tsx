@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   },
 });
 
-export function Start() {
+export function Timer() {
   const styles = useStyles();
 
   return (
