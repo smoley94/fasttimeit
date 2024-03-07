@@ -3,7 +3,6 @@ import { NavigationDrawer } from "../../packages/shared/src/components/navigatio
 import {
   DrawerBody,
   DrawerHeader,
-  DrawerHeaderTitle,
   makeStyles,
   Tab,
   TabList,
@@ -46,7 +45,6 @@ export function Layout() {
     <div className={styles.root}>
       <NavigationDrawer open>
         <DrawerHeader>
-          <DrawerHeaderTitle>Fast TimeIt</DrawerHeaderTitle>
           <Persona
             size="huge"
             primaryText="Guest"
@@ -56,7 +54,7 @@ export function Layout() {
         </DrawerHeader>
         <DrawerBody className={styles.drawerContent}>
           <div>
-            <TabList appearance="subtle" vertical>
+            <TabList appearance="subtle" vertical size="large">
               <Tab
                 value="/"
                 icon={<HomeRegular />}
@@ -78,6 +76,8 @@ export function Layout() {
               >
                 Manuel tidsregistrering
               </Tab>
+            </TabList>
+            <TabList appearance="subtle" vertical size="large">
               <Tab
                 value="/settings"
                 icon={<SettingsRegular />}
