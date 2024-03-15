@@ -4,12 +4,20 @@ import { PageSection } from "../../../packages/shared/src/components/page-sectio
 import { HelpDrawerSection } from "../../../packages/shared/src/components/help-drawer-section";
 
 import {
+  ArrowReset20Filled,
+  Checkmark16Filled,
+  Play16Filled,
+  RecordStop16Filled,
+} from "@fluentui/react-icons";
+
+import {
   makeStyles,
   Title1,
   Button,
   shorthands,
   MessageBarBody,
   MessageBarTitle,
+  Field,
 } from "@fluentui/react-components";
 
 import { useState, useEffect, useRef } from "react";
@@ -19,7 +27,13 @@ const useStyles = makeStyles({
     display: "flex",
     height: "100%",
   },
-  button: {
+  timer: {
+    display: "flex",
+    ...shorthands.flex(0, 0, "15px"),
+    ...shorthands.padding("15px", 0),
+    fontSize: "30px",
+  },
+  buttons: {
     display: "flex",
     columnGap: "15px",
   },
@@ -66,24 +80,27 @@ export function Timer() {
     <PageLayout>
       <PageContent>
         <Title1 block>Timer</Title1>
-        <PageSection>
-          <div className={styles.root}>
-            <div>{format(time)}</div>
-            <div className={styles.button}>
-              <Button appearance="primary" onClick={() => setRunning(!running)}>
+        <div className={styles.root}>
+          <PageSection>
+            <Field className={styles.timer}>{format(time)}</Field>
+            <div className={styles.buttons}>
+              <Button
+                appearance="primary"
+                icon={<Play16Filled />}
+                onClick={() => setRunning(!running)}
+              >
                 Start
               </Button>
               <Button
                 appearance="primary"
-                onClick={() => {
-                  if (running) clearInterval(timeHandler.current!);
-                  setRunning(!running);
-                }}
+                icon={<RecordStop16Filled />}
+                onClick={() => clearInterval(timeHandler.current!)}
               >
                 Stop
               </Button>
               <Button
                 appearance="primary"
+                icon={<ArrowReset20Filled />}
                 onClick={() => {
                   setTime(0);
                   setRunning(!running);
@@ -91,10 +108,12 @@ export function Timer() {
               >
                 Nulstil
               </Button>
-              <Button appearance="primary">Submit</Button>
+              <Button appearance="primary" icon={<Checkmark16Filled />}>
+                Submit
+              </Button>
             </div>
-          </div>
-        </PageSection>
+          </PageSection>
+        </div>
       </PageContent>
       <HelpDrawerSection className={styles.helpDrawer}>
         <MessageBarBody>

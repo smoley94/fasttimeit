@@ -3,10 +3,16 @@ import { PageContent } from "../../../packages/shared/src/components/page-conten
 import { PageSection } from "../../../packages/shared/src/components/page-section";
 import { HelpDrawerSection } from "../../../packages/shared/src/components/help-drawer-section";
 
+//import type { DatePickerProps } from "@fluentui/react-datepicker-compat";
+//import type { TimePickerProps } from "@fluentui/react-timepicker-compat";
 import { DatePicker } from "@fluentui/react-datepicker-compat";
 import { TimePicker } from "@fluentui/react-timepicker-compat";
 
-import { Calendar16Regular, CalendarLtr16Regular } from "@fluentui/react-icons";
+import {
+  Calendar16Regular,
+  CalendarLtr16Regular,
+  Checkmark16Filled,
+} from "@fluentui/react-icons";
 import {
   Title1,
   Title3,
@@ -25,6 +31,9 @@ import {
   MessageBarBody,
   MessageBarTitle,
   shorthands,
+  Textarea,
+  Button,
+  Divider,
 } from "@fluentui/react-components";
 
 const useStyles = makeStyles({
@@ -32,11 +41,8 @@ const useStyles = makeStyles({
     display: "flex",
     height: "100%",
   },
-  manualContent: {
+  form: {
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    height: "100%",
   },
   datePicker: {
     maxWidth: "300px",
@@ -157,18 +163,31 @@ export function Manual() {
         </PageSection>
         <PageSection>
           <div className={styles.root}>
-            <Field label="Vælg en dato">
-              <DatePicker
-                className={styles.datePicker}
-                placeholder="Vælg en dato..."
-              />
-            </Field>
-            <Field label="Vælg tid">
-              <TimePicker
-                className={styles.timePicker}
-                placeholder="Vælg tid"
-              />
-            </Field>
+            <div className="form">
+              <Field label="Vælg en dato">
+                <DatePicker
+                  className={styles.datePicker}
+                  placeholder="Vælg en dato..."
+                />
+              </Field>
+              <Field label="Vælg tid">
+                <TimePicker
+                  className={styles.timePicker}
+                  placeholder="Vælg tid"
+                />
+              </Field>
+              <Field label="Beskrivelse">
+                <Textarea size="small" placeholder="Beskrivelse" />
+              </Field>
+              <Button
+                appearance="primary"
+                type="submit"
+                icon={<Checkmark16Filled />}
+              >
+                Submit
+              </Button>
+              <Divider />
+            </div>
           </div>
         </PageSection>
         <PageSection>
