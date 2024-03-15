@@ -87,14 +87,18 @@ export function Timer() {
               <Button
                 appearance="primary"
                 icon={<Play16Filled />}
-                onClick={() => setRunning(!running)}
+                onClick={() => {
+                  if (!running) {
+                    setRunning(true);
+                  }
+                }}
               >
                 Start
               </Button>
               <Button
                 appearance="primary"
                 icon={<RecordStop16Filled />}
-                onClick={() => clearInterval(timeHandler.current!)}
+                onClick={() => setRunning(false)}
               >
                 Stop
               </Button>
@@ -103,7 +107,6 @@ export function Timer() {
                 icon={<ArrowReset20Filled />}
                 onClick={() => {
                   setTime(0);
-                  setRunning(!running);
                 }}
               >
                 Nulstil
