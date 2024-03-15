@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     backgroundColor: tokens.colorNeutralBackground3,
     "& .fui-DrawerBody": {
       backgroundColor: tokens.colorNeutralBackground3,
-      backgroundImage: "none", // remove the white separator
+      backgroundImage: "none",
     },
   },
 });

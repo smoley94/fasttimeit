@@ -1,11 +1,11 @@
 import { NavigationDrawer } from "../../packages/shared/src/components/navigation-drawer";
+import { NavTabList } from "../../packages/shared/src/components/nav-tab-list";
 
 import {
   DrawerBody,
   DrawerHeader,
   makeStyles,
   Tab,
-  TabList,
   Persona,
 } from "@fluentui/react-components";
 
@@ -17,7 +17,7 @@ import {
   ArrowExitRegular,
 } from "@fluentui/react-icons";
 
-import { useNavigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -30,16 +30,16 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     height: "100%",
   },
+  justifyStart: {
+    justifyContent: "flex-start",
+  },
+  justifyEnd: {
+    justifyContent: "flex-end",
+  },
 });
 
 export function Layout() {
   const styles = useStyles();
-
-  const navigate = useNavigate();
-
-  function handleClick(value: string) {
-    navigate(value);
-  }
 
   return (
     <div className={styles.root}>
@@ -52,47 +52,37 @@ export function Layout() {
             textAlignment="center"
           />
         </DrawerHeader>
-        <DrawerBody className={styles.drawerContent}>
-          <div>
-            <TabList appearance="subtle" vertical size="large">
-              <Tab
-                value="/"
-                icon={<HomeRegular />}
-                onClick={() => handleClick("/")}
-              >
-                Startsside
+        <DrawerBody>
+          <div className={styles.drawerContent}>
+            <NavTabList
+              appearance="subtle"
+              vertical
+              size="large"
+              className={styles.justifyStart}
+            >
+              <Tab value="/" icon={<HomeRegular />}>
+                Startside
               </Tab>
-              <Tab
-                value="/timer"
-                icon={<TimerRegular />}
-                onClick={() => handleClick("/timer")}
-              >
+              <Tab value="/timer" icon={<TimerRegular />}>
                 Stopur
               </Tab>
-              <Tab
-                value="/manual"
-                icon={<AddSquareRegular />}
-                onClick={() => handleClick("/manual")}
-              >
+              <Tab value="/manual" icon={<AddSquareRegular />}>
                 Manuel tidsregistrering
               </Tab>
-            </TabList>
-            <TabList appearance="subtle" vertical size="large">
-              <Tab
-                value="/settings"
-                icon={<SettingsRegular />}
-                onClick={() => handleClick("/settings")}
-              >
+            </NavTabList>
+            <NavTabList
+              appearance="subtle"
+              vertical
+              size="large"
+              className={styles.justifyEnd}
+            >
+              <Tab value="/settings" icon={<SettingsRegular />}>
                 Indstillinger
               </Tab>
-              <Tab
-                value="/logout"
-                icon={<ArrowExitRegular />}
-                onClick={() => handleClick("/logout")}
-              >
+              <Tab value="/logout" icon={<ArrowExitRegular />}>
                 Log ud
               </Tab>
-            </TabList>
+            </NavTabList>
           </div>
         </DrawerBody>
       </NavigationDrawer>

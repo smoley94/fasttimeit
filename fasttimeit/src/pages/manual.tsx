@@ -3,6 +3,9 @@ import { PageContent } from "../../../packages/shared/src/components/page-conten
 import { PageSection } from "../../../packages/shared/src/components/page-section";
 import { HelpDrawerSection } from "../../../packages/shared/src/components/help-drawer-section";
 
+import { DatePicker } from "@fluentui/react-datepicker-compat";
+import { TimePicker } from "@fluentui/react-timepicker-compat";
+
 import { Calendar16Regular, CalendarLtr16Regular } from "@fluentui/react-icons";
 import {
   Title1,
@@ -18,6 +21,7 @@ import {
   TableColumnDefinition,
   createTableColumn,
   makeStyles,
+  Field,
   MessageBarBody,
   MessageBarTitle,
   shorthands,
@@ -27,6 +31,18 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     height: "100%",
+  },
+  manualContent: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
+  },
+  datePicker: {
+    maxWidth: "300px",
+  },
+  timePicker: {
+    maxWidth: "300px",
   },
   gridContent: {
     height: "100%",
@@ -129,7 +145,7 @@ const columns: TableColumnDefinition<Item>[] = [
   }),
 ];
 
-export function Start() {
+export function Manual() {
   const styles = useStyles();
 
   return (
@@ -137,7 +153,23 @@ export function Start() {
       <PageContent>
         <Title1 block>Fast TimeIt&trade;</Title1>
         <PageSection>
-          <Title3>Oversigt over denne uge</Title3>
+          <Title3>Manuel tidsregistrering</Title3>
+        </PageSection>
+        <PageSection>
+          <div className={styles.root}>
+            <Field label="Vælg en dato">
+              <DatePicker
+                className={styles.datePicker}
+                placeholder="Vælg en dato..."
+              />
+            </Field>
+            <Field label="Vælg tid">
+              <TimePicker
+                className={styles.timePicker}
+                placeholder="Vælg tid"
+              />
+            </Field>
+          </div>
         </PageSection>
         <PageSection>
           <div className={styles.root}>

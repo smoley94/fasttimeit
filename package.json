@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"@fluentui/react-datepicker-compat": "^0.4.26",
+		"@fluentui/react-timepicker-compat": "^0.2.2"
+	}
+}

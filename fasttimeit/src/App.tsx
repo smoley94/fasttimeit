@@ -3,6 +3,7 @@ import { RouteErrorBoundary } from "../../packages/shared/src/components/route-e
 import { Layout } from "./layout";
 import { Start } from "./pages/start";
 import { Timer } from "./pages/timer";
+import { Manual } from "./pages/manual";
 import "normalize.css";
 
 import {
@@ -33,6 +34,10 @@ export function App() {
         {
           path: "timer",
           element: <Timer />,
+        },
+        {
+          path: "manual",
+          element: <Manual />,
         },
       ],
     },
