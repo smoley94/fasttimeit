@@ -18,7 +18,7 @@ export function NavTabList({ children, ...props }: NavTabListProps) {
   return (
     <TabList
       selectedValue={currentPath}
-      onTabSelect={(_e, data) => {
+      onTabSelect={(_e: any, data: { value: string }) => {
         navigate(data.value as string);
       }}
       {...props}

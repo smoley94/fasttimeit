@@ -1,7 +1,6 @@
 import { PageLayout } from "../../../packages/shared/src/components/page-layout";
 import { PageContent } from "../../../packages/shared/src/components/page-content";
 import { PageSection } from "../../../packages/shared/src/components/page-section";
-import { HelpDrawerSection } from "../../../packages/shared/src/components/help-drawer-section";
 
 //import type { DatePickerProps } from "@fluentui/react-datepicker-compat";
 //import type { TimePickerProps } from "@fluentui/react-timepicker-compat";
@@ -28,8 +27,8 @@ import {
   createTableColumn,
   makeStyles,
   Field,
-  MessageBarBody,
-  MessageBarTitle,
+  //MessageBarBody,
+  //MessageBarTitle,
   shorthands,
   Textarea,
   Button,
@@ -219,11 +218,6 @@ export function Manual() {
           </div>
         </PageSection>
       </PageContent>
-      <HelpDrawerSection className={styles.helpDrawer}>
-        <MessageBarBody>
-          <MessageBarTitle>HelpDrawer</MessageBarTitle>
-        </MessageBarBody>
-      </HelpDrawerSection>
     </PageLayout>
   );
 }

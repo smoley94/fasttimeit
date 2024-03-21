@@ -1,13 +1,12 @@
 import { PageLayout } from "../../../packages/shared/src/components/page-layout";
 import { PageContent } from "../../../packages/shared/src/components/page-content";
 import { PageSection } from "../../../packages/shared/src/components/page-section";
-import { HelpDrawerSection } from "../../../packages/shared/src/components/help-drawer-section";
 
 import {
-  ArrowReset20Filled,
-  Checkmark16Filled,
   Play16Filled,
   RecordStop16Filled,
+  ArrowReset20Filled,
+  Checkmark16Filled,
 } from "@fluentui/react-icons";
 
 import {
@@ -15,8 +14,6 @@ import {
   Title1,
   Button,
   shorthands,
-  MessageBarBody,
-  MessageBarTitle,
   Field,
 } from "@fluentui/react-components";
 
@@ -118,11 +115,6 @@ export function Timer() {
           </PageSection>
         </div>
       </PageContent>
-      <HelpDrawerSection className={styles.helpDrawer}>
-        <MessageBarBody>
-          <MessageBarTitle>HelpDrawer</MessageBarTitle>
-        </MessageBarBody>
-      </HelpDrawerSection>
     </PageLayout>
   );
 }
